@@ -4,7 +4,9 @@ Output: Brain/_files/concepts/website-reposition-2026/site/
 """
 import os, re, datetime
 
-SRC = "/sessions/lucid-focused-carson/mnt/Claude/Brain/_files/concepts/website-reposition-2026"
+# Directory that holds the source mockups. This script lives in SRC/site, so derive
+# SRC from the script's own location (was a hardcoded sandbox path that no longer exists).
+SRC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(SRC, "site")
 os.makedirs(OUT, exist_ok=True)
 
@@ -306,6 +308,27 @@ HEAD = """<!DOCTYPE html>
 </head>
 <body>
 """
+
+# --- Tracking: GTM container + Facebook domain verification (added 2026-06-16) ---
+# Only the GTM container loads on the page. Every conversion/analytics tag (Google Ads
+# AW-17331670664, GA4 G-V0ZJ5KTEAA, Meta Pixel, etc.) fires INSIDE the GTM container, so
+# none of those are hardcoded here. Hardcoding them too would double-count conversions.
+# GTM is the single source for those events.
+FB_META = '<meta name="facebook-domain-verification" content="uvurknwfoozz7aou0s49waz7rdd54y" />'
+GTM_HEAD = """<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-56W2P5N8');</script>
+<!-- End Google Tag Manager -->"""
+GTM_NOSCRIPT = """<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56W2P5N8"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->"""
+# Inject into the shared template so every current and future page carries it.
+HEAD = HEAD.replace("<head>", "<head>\n" + FB_META + "\n" + GTM_HEAD, 1)
+HEAD = HEAD.replace("<body>", "<body>\n" + GTM_NOSCRIPT, 1)
 
 # Every booking CTA opens the iClosed popup (element-click embed)
 ICLOSED = 'href="javascript:void(0)" data-iclosed-link="https://app.iclosed.io/e/nwai/book-a-call" data-embed-type="popup"'
@@ -970,6 +993,9 @@ idx = idx.replace("wyatt@nwai.co", "consulting@nwai.co")
 idx = idx.replace("<title>Northwest AI — ", "<title>Northwest AI · ")
 idx_title = re.search(r"<title>(.*?)</title>", idx).group(1)
 idx = idx.replace("</title>", "</title>\n" + seo_tags("index.html", idx_title), 1)
+# Homepage is built from the v3 mockup (its own <head>), so inject GTM + FB verification here too.
+idx = re.sub(r"(<head[^>]*>)", lambda m: m.group(1) + "\n" + FB_META + "\n" + GTM_HEAD, idx, count=1)
+idx = re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + "\n" + GTM_NOSCRIPT, idx, count=1)
 open(os.path.join(OUT, "index.html"), "w").write(idx)
 WRITTEN.append("index.html")
 print("wrote index.html")
@@ -1000,6 +1026,9 @@ print("wrote sitemap.xml (%d urls, /claude excluded by design)" % len(ordered))
 # DELIBERATELY: not in the nav, not in the sitemap (it carries meta noindex,nofollow),
 # and not SEO-tagged. Source of truth lives one level up (nwai-claude-lp-static.html).
 lp = open(os.path.join(SRC, "nwai-claude-lp-static.html")).read()
+# Carry the same GTM container + FB verification onto the /claude ads LP (matches live).
+lp = re.sub(r"(<head[^>]*>)", lambda m: m.group(1) + "\n" + FB_META + "\n" + GTM_HEAD, lp, count=1)
+lp = re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + "\n" + GTM_NOSCRIPT, lp, count=1)
 open(os.path.join(OUT, "claude.html"), "w").write(lp)
 print("wrote claude.html (ads LP, noindex, excluded from nav + sitemap)")
 
