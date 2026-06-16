@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# /claude is the Facebook ads landing page. It carries meta noindex,nofollow.
+# Do not Disallow it here: blocking crawl would hide that noindex tag from Google.
+
+Sitemap: https://nwai.co/sitemap.xml

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Claude - Northwest AI Consulting</title>
+<!-- PRODUCTION TODO: paste GTM / Meta Pixel snippet here before launch -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- FONT: Poppins, confirmed by Wyatt 2026-06-10 (matches the live converting page) -->
+<style>
+  :root {
+    --font: "Poppins", -apple-system, sans-serif;
+    --ink: #1B2533;
+    --gray: #555F6E;
+    --cta: #1B2F55;
+    --cta-deep: #13233F;
+    --dot: #E0492E;
+    --line: rgba(27, 37, 51, 0.12);
+    --soft: #F7F7F5;
+    --hero-top: #05090F;
+    --hero-bottom: #2160E8;
+    --overlap: clamp(80px, 19vw, 170px);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: #fff;
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 740px; margin: 0 auto; padding: 0 18px; }
+  .wrap-wide { max-width: 1060px; margin: 0 auto; padding: 0 22px; }
+  section { padding: 56px 0; }
+  h1, h2, h3 { font-weight: 700; line-height: 1.3; letter-spacing: 0; }
+
+  /* TOP BAR + PILL (black strip, white pill, red dot) */
+  .topbar { background: #000; padding: 12px 16px; text-align: center; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #fff; color: var(--ink); border-radius: 6px;
+    padding: 8px 18px; font-size: 12.5px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .pill .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--dot); display: inline-block; }
+
+  /* HERO — navy-to-blue gradient with grid pattern, like the live page */
+  .hero {
+    text-align: center; padding: 56px 0 0;
+    display: flow-root;
+    background:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(115deg, var(--hero-top) 0%, var(--hero-bottom) 100%);
+    background-size: 110px 110px, 110px 110px, 100% 100%;
+  }
+  .hero .wrap, .hero .wrap-wide { display: flow-root; }
+  .hero h1 {
+    font-size: clamp(33px, 3.6vw, 62px); max-width: 1080px; margin: 0 auto 30px;
+    color: #fff; text-transform: uppercase; font-weight: 800; line-height: 1.45;
+  }
+  .hero p { font-size: clamp(25px, 2.2vw, 30px); color: rgba(255,255,255,0.96); max-width: 1000px; margin: 0 auto 12px; font-weight: 500; line-height: 1.45; }
+  .hero p strong { color: #fff; }
+  .vsl-wrap {
+    max-width: 820px; margin: 30px auto 0;
+    position: relative; z-index: 2;
+    margin-bottom: calc(-1 * var(--overlap));
+  }
+  .after-hero { text-align: center; padding: calc(var(--overlap) + 40px) 0 8px; }
+  .after-hero p { font-size: clamp(18px, 2.4vw, 21px); color: var(--ink); max-width: 800px; margin: 0 auto; line-height: 1.5; }
+  .after-hero p strong { color: var(--ink); }
+  .btn {
+    display: inline-block; background: var(--cta); color: #fff;
+    font-weight: 700; font-size: 18px; letter-spacing: 0.04em;
+    padding: 21px 60px; border-radius: 8px; text-decoration: none;
+    transition: background .12s ease;
+  }
+  .btn:hover { background: var(--cta-deep); }
+  .cta-row { text-align: center; margin-top: 30px; }
+  @media (max-width: 760px) {
+    .cta-row .btn {
+      display: block; width: 100%; max-width: 420px; margin: 0 auto;
+      padding: 20px 22px; font-size: 18px; border-radius: 10px;
+    }
+    .cta-row { padding: 0 28px; }
+  }
+
+  /* GOOGLE-STYLE REVIEW CARDS */
+  .grev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
+  @media (max-width: 760px) { .grev-grid { grid-template-columns: 1fr; } }
+  .grev {
+    background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px 20px 18px; text-align: left;
+    box-shadow: 0 1px 6px rgba(27,37,51,0.06);
+  }
+  .grev-head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .grev-av {
+    width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: 17px;
+  }
+  .grev-name { font-weight: 600; font-size: 14.5px; line-height: 1.3; }
+  .grev-meta { font-size: 12px; color: var(--gray); }
+  .grev-starrow { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .grev-stars { color: #FBBC04; font-size: 15px; letter-spacing: 2px; }
+  .grev-time { font-size: 12px; color: var(--gray); }
+  .grev-new { font-size: 11px; color: var(--gray); border: 1px solid var(--line); border-radius: 4px; padding: 1px 7px; }
+  @media (min-width: 761px) {
+    .grev-grid .grev:nth-child(2) { transform: translateY(22px); }
+    .grev-grid .grev:nth-child(3) { transform: translateY(10px); }
+    .grev-grid .grev:nth-child(5) { transform: translateY(22px); }
+    .grev-grid .grev:nth-child(6) { transform: translateY(10px); }
+  }
+  .grev-grid + .grev-grid { margin-top: 48px; }
+  .grev p { font-size: 14.5px; color: #3C4350; line-height: 1.55; }
+  .grev mark { background: #FFE867; padding: 1px 3px; border-radius: 2px; color: inherit; }
+  .grev .g-badge { display: flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 11.5px; color: var(--gray); }
+
+  /* PORTRAIT TESTIMONIAL VIDEO */
+  .vsl-portrait { max-width: 380px; margin: 0 auto 32px; }
+
+  /* REVIEWS — speckled texture panels like live */
+  .says { padding: 24px 14px; background: #fff; }
+  .says .panel {
+    background-color: #F4F4F1;
+    background-image: radial-gradient(rgba(27,37,51,0.05) 1px, transparent 1px);
+    background-size: 6px 6px;
+    border-radius: 26px; padding: 56px 28px 64px;
+  }
+  .says h2 { font-size: clamp(28px, 3.2vw, 34px); text-align: center; margin-bottom: 36px; }
+  @media (max-width: 760px) {
+    .says { padding: 16px 8px; }
+    .says .panel { padding: 40px 10px 48px; border-radius: 20px; }
+    .says .wrap-wide { padding: 0 4px; }
+  }
+  .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
+  @media (max-width: 760px) { .shots { grid-template-columns: 1fr; } }
+  .shots img { width: 100%; border-radius: 8px; border: 1px solid var(--line); background: #fff; display: block; }
+  .shots + .shots { margin-top: 16px; }
+
+  /* WHAT YOU GET — torn black banner + 3 columns like live */
+  .torn {
+    background: #222; color: #fff; text-align: center;
+    padding: 52px 20px; margin: 30px 10px 26px;
+    clip-path: polygon(0% 14%, 3% 6%, 7% 12%, 12% 4%, 18% 10%, 24% 3%, 30% 11%, 37% 5%, 44% 12%, 51% 4%, 58% 10%, 65% 3%, 72% 11%, 79% 5%, 86% 12%, 92% 5%, 97% 11%, 100% 6%, 100% 88%, 96% 95%, 91% 88%, 85% 96%, 78% 89%, 71% 96%, 64% 88%, 57% 95%, 50% 89%, 43% 96%, 36% 89%, 29% 95%, 22% 88%, 15% 96%, 9% 89%, 4% 95%, 0% 89%);
+  }
+  .torn h2 { font-size: clamp(26px, 3.4vw, 40px); color: #fff; }
+  .get-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1200px; margin: 30px auto 0; padding: 0 22px; }
+  @media (max-width: 860px) { .get-cols { grid-template-columns: 1fr; } }
+  .get-item { text-align: center; }
+  .get-item h3 { font-size: clamp(20px, 1.8vw, 24px); margin-bottom: 18px; }
+  .get-item img { width: 100%; border-radius: 10px; border: 1px solid var(--line); display: block; margin: 0 auto 18px; }
+  .get-item p { font-size: 16px; color: var(--gray); margin: 0 auto; }
+  .get-item p strong { color: var(--ink); }
+
+  /* FAQ ACCORDIONS — like the live page */
+  .faq-wrap { padding: 56px 18px 20px; }
+  .faq-acc { margin-bottom: 22px; }
+  .faq-acc summary {
+    cursor: pointer; list-style: none; padding: 20px 26px;
+    font-size: clamp(17px, 2.2vw, 21px); font-weight: 700;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    background: #232A4D; color: #fff; border-radius: 8px;
+  }
+  .faq-acc summary::-webkit-details-marker { display: none; }
+  .faq-acc summary::after { content: "+"; font-size: 22px; font-weight: 400; color: #fff; flex-shrink: 0; }
+  .faq-acc[open] summary::after { content: "\00d7"; }
+  .faq-acc .a { padding: 22px 26px 10px; }
+  .faq-acc p { font-size: 16.5px; color: var(--gray); margin-bottom: 14px; }
+  .faq-acc p strong { color: var(--ink); }
+  .faq-acc ul { margin: 0 0 14px 22px; color: var(--gray); }
+  .faq-acc li { margin-bottom: 9px; }
+  .faq-acc li strong { color: var(--ink); }
+
+  /* BOOK */
+  .book { background: #fff; text-align: center; padding: 64px 0 40px; }
+  .book h2 { font-size: clamp(26px, 3.6vw, 34px); margin-bottom: 14px; }
+  .book p { color: var(--gray); max-width: 540px; margin: 0 auto 26px; }
+  .iclosed-widget { max-width: 900px; margin: 0 auto; }
+
+  footer { text-align: center; padding: 36px 22px 44px; font-size: 12.5px; color: var(--gray); }
+  footer a { color: var(--gray); }
+</style>
+</head>
+<body>
+
+<div class="topbar"><span class="pill"><span class="dot"></span>3 spots left for June</span></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap-wide">
+    <h1>Are you getting left behind in the age of AI?</h1>
+    <p>Get an entire AI team to put your company ahead of AI, not behind it.</p>
+
+    <div class="vsl-wrap">
+      <div id="vidalytics_embed_KemefV9cIz_YJpm3" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
+      <script type="text/javascript">
+      (function (v, i, d, a, l, y, t, c, s) {
+          y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+          if (!vsl){vsl=function(u,cb){
+              if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+              if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+              i.getElementsByTagName("head")[0].appendChild(s);
+          };}
+          vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+      })(window, document, 'Vidalytics', 'vidalytics_embed_KemefV9cIz_YJpm3', 'https://fast.vidalytics.com/embeds/l4o6zaOs/KemefV9cIz_YJpm3/');
+      </script>
+    </div>
+
+  </div>
+</header>
+
+<div class="after-hero">
+  <div class="wrap">
+    <p>It's a hands-on partnership from the team behind <strong>100+ AI projects</strong>: we lead your AI strategy, our engineers automate your busywork, and we train your team to use AI on their actual jobs.</p>
+    <div class="cta-row">
+      <a class="btn" href="#book">I'M READY TO LEAD</a>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL PROOF 1: testimonial video + google-style reviews (PLACEHOLDER reviews pending real ones) -->
+<section class="says">
+  <div class="panel">
+  <div class="wrap-wide">
+    <h2>What people are saying:</h2>
+    <div class="vsl-portrait">
+      <div id="vidalytics_embed_EcwPS0weQvHam2YA" style="width: 100%; position:relative; padding-top: 177.78%;"></div>
+      <script type="text/javascript">
+      (function (v, i, d, a, l, y, t, c, s) {
+          y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+          if (!vsl){vsl=function(u,cb){
+              if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+              if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+              i.getElementsByTagName("head")[0].appendChild(s);
+          };}
+          vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+      })(window, document, 'Vidalytics', 'vidalytics_embed_EcwPS0weQvHam2YA', 'https://fast.vidalytics.com/embeds/l4o6zaOs/EcwPS0weQvHam2YA/');
+      </script>
+    </div>
+    <div class="grev-grid">
+      <div class="grev">
+        <div class="grev-head">
+          <div class="grev-av" style="background:#7B6CD9;">D</div>
+          <div><div class="grev-name">Dana R.</div><div class="grev-meta">2 reviews &middot; 1 photo</div></div>
+        </div>
+        <div class="grev-starrow"><span class="grev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="grev-time">2 months ago</span><span class="grev-new">New</span></div>
+        <p>Our staff was hand-sorting hundreds of insurance referrals every week. <mark>NWAI automated the entire pipeline</mark>, fully HIPAA compliant and connected straight into our EMR. What used to eat hours every single day takes minutes now. Can't imagine going back.</p>
+      </div>
+      <div class="grev">
+        <div class="grev-head">
+          <div class="grev-av" style="background:#2E8B6E;">M</div>
+          <div><div class="grev-name">Mike T.</div><div class="grev-meta">5 reviews &middot; 2 photos</div></div>
+        </div>
+        <div class="grev-starrow"><span class="grev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="grev-time">3 weeks ago</span><span class="grev-new">New</span></div>
+        <p>We take 500 calls a day and used to staff a whole phone team for it. Their AI phone agent now picks up 9 out of 10 calls, day and night. We haven't missed a tow since it went live. <mark>Should have done this a year ago.</mark></p>
+      </div>
+      <div class="grev">
+        <div class="grev-head">
+          <div class="grev-av" style="background:#C25B36;">J</div>
+          <div><div class="grev-name">Jim S.</div><div class="grev-meta">3 reviews</div></div>
+        </div>
+        <div class="grev-starrow"><span class="grev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="grev-time">1 month ago</span><span class="grev-new">New</span></div>
+        <p>Our safety reports were 80% late and somebody in the office chased crews for them every week. NWAI built a system that pings everyone automatically. <mark>Now we're 80% on time</mark> and the paperwork is there when we need it. These guys actually build things, not just talk.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="get" style="padding-top: 20px;">
+  <div class="torn"><h2>What you get with your AI team:</h2></div>
+  <div class="get-cols">
+    <div class="get-item">
+      <h3>1. A real engineering team</h3>
+      <img src="https://nwai.co/wp-content/uploads/2026/01/Gemini_Generated_Image_bncwi6bncwi6bncw-scaled.png" alt="Engineering team">
+      <p>Phone agents, intake pipelines, systems that don't talk to each other: the builds you can't buy off the shelf. Our <strong>15 engineers</strong> build them, maintain them. You own every line.</p>
+    </div>
+    <div class="get-item">
+      <h3>2. Your team, fluent in Claude</h3>
+      <img src="https://nwai.co/wp-content/uploads/2026/01/Gemini_Generated_Image_qhoguhqhoguhqhog-scaled.png" alt="Claude training">
+      <p>Claude handles most busywork out of the box. Most teams never find out. We train every person to use it on their actual jobs, until your team finds wins on its own.</p>
+    </div>
+    <div class="get-item">
+      <h3>3. Your Company Brain</h3>
+      <img src="https://nwai.co/wp-content/uploads/2026/01/8week_operations_coaching-scaled.png" alt="Company Brain">
+      <p>Your data and knowledge, pulled out of scattered tools and people's heads into one source of truth your AI runs on.</p>
+    </div>
+  </div>
+  <div class="cta-row">
+    <a class="btn" href="#book">I'M READY TO LEAD</a>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF 2 — ALL PLACEHOLDER REVIEWS (illustrative personas on real anonymized NWAI
+     build categories, for page fullness while Wyatt collects permissions). DO NOT PUBLISH.
+     Real verbatim candidates + approval drafts: Brain testimonial-candidates.md. -->
+<section class="says">
+  <div class="panel">
+  <div class="wrap-wide">
+    <div class="grev-grid">
+      <div class="grev">
+        <div class="grev-head">
+          <div class="grev-av" style="background:#1A73E8;">M</div>
+          <div><div class="grev-name">Mark D.</div><div class="grev-meta">3 reviews</div></div>
+        </div>
+        <div class="grev-starrow"><span class="grev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="grev-time">a week ago</span><span class="grev-new">New</span></div>
+        <p>We run a 60-person manufacturing shop and the back office was all manual. They connected our systems and trained the office staff on Claude. <mark>Month-end used to eat a week, now it's two days.</mark> And the team actually likes using it, which I did not expect.</p>
+      </div>
+      <div class="grev">
+        <div class="grev-head">
+          <div class="grev-av" style="background:#188038;">K</div>
+          <div><div class="grev-name">Karen L.</div><div class="grev-meta">1 review</div></div>
+        </div>
+        <div class="grev-starrow"><span class="grev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="grev-time">3 weeks ago</span><span class="grev-new">New</span></div>
+        <p>I expected another webinar everyone forgets by Friday. It was hands-on, on our own files, department by department. <mark>Our whole team actually uses it now</mark>, not just the one tech-savvy guy. That's the part nobody else pulled off.</p>
+      </div>
+      <div class="grev">
+        <div class="grev-head">
+          <div class="grev-av" style="background:#C25B36;">D</div>
+          <div><div class="grev-name">Dave R.</div><div class="grev-meta">5 reviews &middot; 2 photos</div></div>
+        </div>
+        <div class="grev-starrow"><span class="grev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="grev-time">1 month ago</span><span class="grev-new">New</span></div>
+        <p>We run three companies under one roof and nothing talked to anything. They built our Company Brain and now <mark>Claude finally knows our business.</mark> New hires get up to speed in days instead of months.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- BOOK A CALL (iClosed inline) -->
+<section class="book" id="book">
+  <div class="wrap-wide">
+    <h2>Book your call</h2>
+    <p>We'll map your situation, tell you what AI can actually do for your numbers, and whether we're the right team to build it.</p>
+    <!-- iClosed inline widget begin -->
+    <div class="iclosed-widget" data-url="https://app.iclosed.io/e/nwai/ai" title="AI Team Overview" style="width: 100%; height: 620px"></div>
+    <script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" async></script>
+    <!-- iClosed inline widget end -->
+  </div>
+</section>
+
+<!-- Q&A ACCORDIONS -->
+<div class="wrap faq-wrap">
+  <details class="faq-acc" open>
+    <summary>What actually happens in the engagement?</summary>
+    <div class="a">
+      <p>It's not a workshop. It's not a course. We embed with your team and build alongside you, every month. Most companies buy AI once, run a training, and watch it go stale. That's the problem we solve.</p>
+      <p>Month 1, we map every workflow and hand you a written <strong>80/20 Report:</strong> exactly where AI pays off fastest, ranked, with a build roadmap for the year.</p>
+      <p>Then it just runs. Our engineers ship the agents and custom dev. Your team gets trained. Every month, on the work that actually moves your numbers.</p>
+    </div>
+  </details>
+  <details class="faq-acc">
+    <summary>What do I walk away with?</summary>
+    <div class="a">
+      <p>A company that's ahead of AI instead of behind it.</p>
+      <p>The bottleneck is gone. AI isn't stuck in one or two people's heads, your whole team uses it every day. Proposals go out faster. Your best people's expertise lives in the system instead of leaving when they do. And when your board asks what AI is doing for the company, you have an answer.</p>
+      <p>You move at the speed of the competitor who's been pulling ahead. <strong>Except now that's you.</strong></p>
+    </div>
+  </details>
+  <details class="faq-acc">
+    <summary>Is this right for my business size/industry?</summary>
+    <div class="a">
+      <p><strong>Size:</strong> under $10M/yr in revenue, this is not a fit yet. The math doesn't pay back inside a year at that size. Watch our free content and come back when the numbers work.</p>
+      <p>Between $10M and $500M/yr, we can help. How can the range be that wide? It flexes by depth: a few builds a quarter, a weekly cadence, or running your whole AI org. Same shape, scaled to your size.</p>
+      <p><strong>Industry:</strong> we've recently shipped in Construction, Insurance, Energy, CPG, Fintech, Financial services, Manufacturing, Healthcare, Professional services, and B2B software. If you're one of these, chances are we can help.</p>
+    </div>
+  </details>
+  <details class="faq-acc">
+    <summary>Q4: How much is it?</summary>
+    <div class="a">
+      <p>Three tiers, <strong>$3,500 to $12,500/month</strong>. Most land on the Fractional CAIO at <strong>$6,500/month</strong>, which includes a <strong>$54K/yr build-credit pool</strong>. This allows us to:</p>
+      <ul>
+        <li>Put a real engineering team on your business: a CTO who built at Amazon, a head of engineering from Microsoft, and 15 engineers.</li>
+        <li>Own your strategy, build what matters, and train your whole team, for a fraction of one full-time CAIO hire + engineers at <strong>$300K to $1M/yr</strong>.</li>
+        <li>Credits work simply: we scope a build, you approve it, we ship it. You spend them where the 80/20 Report says it pays off most.</li>
+      </ul>
+      <p>Annual partnership, backed by a <strong>60-day money-back guarantee</strong>. If you want a one-time project with a finish line, this isn't it. If you want AI owned, chances are we can help.</p>
+    </div>
+  </details>
+</div>
+
+<!-- REVIEW WALL -->
+<div class="cta-row" style="margin: 48px 0 8px;">
+  <a class="btn" href="#book">I'M READY TO DEPLOY</a>
+</div>
+<!-- REVIEW WALL — ALL PLACEHOLDER REVIEWS (illustrative personas on real anonymized NWAI
+     build categories, for page fullness while Wyatt collects permissions). DO NOT PUBLISH.
+     Real verbatim candidates + approval drafts: Brain testimonial-candidates.md. -->
+<section class="says">
+  <div class="panel">
+  <div class="wrap-wide">
+    <div class="grev-grid">
+      <div class="grev">
+        <div class="grev-head">
+          <div class="grev-av" style="background:#9C27B0;">J</div>
+          <div><div class="grev-name">Jess W.</div><div class="grev-meta">1 review</div></div>
+        </div>
+        <div class="grev-starrow"><span class="grev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="grev-time">1 month ago</span><span class="grev-new">New</span></div>
+        <p>I'm a PM at a commercial GC. They built a compliance dashboard tied into Procore and <mark>I stopped chasing subs for certs.</mark> It pings them, tracks everything, and flags what's expiring before it bites us. Hours of my week, back.</p>
+      </div>
+      <div class="grev">
+        <div class="grev-head">
+          <div class="grev-av" style="background:#F4511E;">K</div>
+          <div><div class="grev-name">Kevin B.</div><div class="grev-meta">6 reviews &middot; 3 photos</div></div>
+        </div>
+        <div class="grev-starrow"><span class="grev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="grev-time">2 months ago</span><span class="grev-new">New</span></div>
+        <p>Supply chain lead at a CPG company. The training was built around our actual jobs, not generic AI talk. <mark>Reports that took all morning now take minutes</mark>, and I can see exactly how the numbers got there.</p>
+      </div>
+      <div class="grev">
+        <div class="grev-head">
+          <div class="grev-av" style="background:#00ACC1;">M</div>
+          <div><div class="grev-name">Maria G.</div><div class="grev-meta">4 reviews &middot; 2 photos</div></div>
+        </div>
+        <div class="grev-starrow"><span class="grev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="grev-time">2 months ago</span><span class="grev-new">New</span></div>
+        <p>I run accounting for a regional services company. Between the trainings and the connections they set up, <mark>half my data entry is just gone.</mark> My only regret is waiting as long as we did.</p>
+      </div>
+    </div>
+    <div class="grev-grid">
+      <div class="grev">
+        <div class="grev-head">
+          <div class="grev-av" style="background:#5F7C8A;">T</div>
+          <div><div class="grev-name">Tom W.</div><div class="grev-meta">2 reviews &middot; 1 photo</div></div>
+        </div>
+        <div class="grev-starrow"><span class="grev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="grev-time">3 months ago</span><span class="grev-new">New</span></div>
+        <p>We manage properties across four entities and could never see the whole picture. They built one view and <mark>every entity's cash sits in one place</mark> for the first time. Month-end went from a scramble to a five-minute pull.</p>
+      </div>
+      <div class="grev">
+        <div class="grev-head">
+          <div class="grev-av" style="background:#D81B60;">L</div>
+          <div><div class="grev-name">Lena M.</div><div class="grev-meta">10 reviews &middot; 5 photos</div></div>
+        </div>
+        <div class="grev-starrow"><span class="grev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="grev-time">3 months ago</span><span class="grev-new">New</span></div>
+        <p>Office admin at a busy clinic. <mark>Appointment confirmations handle themselves now.</mark> Patients confirm by text, the schedule updates itself, and I only touch the exceptions. I got my mornings back.</p>
+      </div>
+      <div class="grev">
+        <div class="grev-head">
+          <div class="grev-av" style="background:#3949AB;">C</div>
+          <div><div class="grev-name">Chris A.</div><div class="grev-meta">3 reviews &middot; 2 photos</div></div>
+        </div>
+        <div class="grev-starrow"><span class="grev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="grev-time">4 months ago</span><span class="grev-new">New</span></div>
+        <p>Own a 40-person services company. Their first report surfaced busywork we'd stopped even noticing. <mark>They found the time sinks we couldn't see</mark>, then knocked out the top three in the first two months. Worth it for that report alone.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<footer>
+  © 2026 Northwest AI · 830 NE Holladay St, Suite 1325, Portland, OR 97232 · <a href="mailto:consulting@nwai.co">consulting@nwai.co</a><br>
+  <span style="opacity:.75;">This page is not part of the Facebook website or Facebook Inc. Additionally, this site is not endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</span>
+</footer>
+
+</body>
+</html>
