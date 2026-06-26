@@ -24,9 +24,9 @@ def page_url(filename):
     return BASE + "/" if filename == "index.html" else BASE + "/" + filename[:-5] + "/"
 
 SEO_DESC = {
-  "index.html": "An entire AI department for mid-market companies: engineers build the automations, we train your team on Claude, and Company Brain keeps it all current.",
+  "index.html": "An entire AI team for mid-market companies: a dedicated engineer builds your automations, we train your team on the best AI tools, and Company Brain keeps it all current.",
   "company-brain.html": "Company Brain holds everything AI needs to know about your business, defined once, deployed to every employee, and kept current. We run it, you own it.",
-  "fractional-caio.html": "An entire AI team without hiring one. An executive owns your AI strategy, engineers ship builds every month, and your team gets fluent in Claude.",
+  "fractional-caio.html": "An entire AI team without hiring one. Your AI lead owns the strategy, a dedicated engineer ships builds every two weeks, and your team gets fluent in the best AI tools.",
   "claude-deployment.html": "A 16-week program that takes your company from scattered AI usage to a trained team, working automations, and a Company Brain. Fixed fee, scoped by headcount.",
   "case-study-referrals.html": "A healthcare provider sorted hundreds of insurance referrals by hand. We built a HIPAA-compliant pipeline tied to their EMR. Sorting now takes minutes.",
   "case-study-phone-agent.html": "A towing company fielding 500 calls a day was missing too many. Our phone agent now answers 90% of them, around the clock.",
@@ -34,7 +34,7 @@ SEO_DESC = {
   "about.html": "Northwest AI started as an engineering shop in 2018 and bet the company on AI. Meet the team helping mid-market companies put AI to work.",
   "careers.html": "We're always hiring AI consultants, AI trainers, and engineers. Northwest AI hires people who know tech and can talk to humans.",
   "role-ai-consultant.html": "Embed with mid-market clients, map how their work actually flows, and put Claude to work on real operations. US-based.",
-  "role-ai-trainer.html": "Deliver hands-on, role-specific Claude training inside our 16-week deployment programs. US-based.",
+  "role-ai-trainer.html": "Deliver hands-on, role-specific AI training inside our 16-week deployment programs. US-based.",
   "role-engineer.html": "Build agents, pipelines, and Company Brain deployments for mid-market companies. Remote.",
   "privacy.html": "How Northwest AI Consulting collects, uses, and protects your information.",
   "terms.html": "The terms that govern use of Northwest AI Consulting's website and services.",
@@ -196,7 +196,7 @@ NAV = """<nav>
         <a class="top" href="#">What we do <span class="car">&#9660;</span></a>
         <div class="dropdown">
           <div class="dd-label">Programs</div>
-          <a href="fractional-caio.html">Fractional Chief AI Officer<span class="d">Your embedded AI department, run for you</span></a>
+          <a href="fractional-caio.html">Your AI Team<span class="d">A dedicated engineer, an AI lead, and a trainer, run for you</span></a>
           <a href="claude-deployment.html">Deployment Program<span class="d">Company-wide Claude rollout in 16 weeks</span></a>
           <a href="#">Embedded Engineering<span class="d">Dedicated build capacity that scales</span></a>
           <hr>
@@ -267,7 +267,7 @@ FOOTER = """{{PRESSTICKER}}<footer>
       </div>
       <div class="foot-links" style="flex-direction: column; gap: 8px;">
         <strong style="color: rgba(250,247,241,0.8); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;">Programs</strong>
-        <a href="fractional-caio.html">Fractional Chief AI Officer</a>
+        <a href="fractional-caio.html">Your AI Team</a>
         <a href="claude-deployment.html">Claude Deployment Program</a>
         <a href="company-brain.html">Company Brain</a>
       </div>
@@ -476,9 +476,9 @@ page("company-brain.html", "Company Brain — Northwest AI", company_brain)
 fcaio = """
 <header class="page-hero">
   <div class="wrap">
-    <div class="kicker">Programs &middot; Fractional Chief AI Officer</div>
-    <h1>An executive owns your AI strategy. Engineers build it. <em class="acc">Your team actually uses it.</em></h1>
-    <p class="lede">The Fractional CAIO is our core partnership: a hands-on AI department embedded in your company, every month. <strong>Strategy, builds, and training, run for you.</strong> For companies doing $10M to $500M.</p>
+    <div class="kicker">Programs &middot; Your AI Team</div>
+    <h1>An entire AI team. <em class="acc">Without hiring one.</em></h1>
+    <p class="lede">An AI lead, a dedicated engineer, and a trainer, embedded in your company every month. <strong>The fastest way to make your company AI native.</strong></p>
     <div class="hero-cta" style="margin-top: 32px;"><a class="btn terra" href="index.html#book">Book a discovery call</a></div>
   </div>
 </header>
@@ -486,25 +486,25 @@ fcaio = """
 <section>
   <div class="wrap">
     <div class="kicker">What you get</div>
-    <h2 style="max-width: 800px;">It's not a workshop. It's not a course. <em class="acc">It's your AI department.</em></h2>
+    <h2 style="max-width: 800px;">Not a workshop. Not a course. <em class="acc">A team that ships.</em></h2>
     <div class="steps-vert">
-      <div class="step-v"><div class="num">01</div><h3>An executive who owns it</h3><p>Your fractional Chief AI Officer leads strategy, decides what gets built and in what order, and answers for results. AI stops being everyone's side project and becomes someone's job.</p></div>
-      <div class="step-v"><div class="num">02</div><h3>A real engineering team</h3><p>For what Claude can't do out of the box: phone agents, intake pipelines, systems that don't talk. A 15-engineer team led by our CTO, who built the Thursday Night Football backend at Amazon, and our head of engineering out of Microsoft. They ship it, maintain it. You own every line.</p></div>
-      <div class="step-v"><div class="num">03</div><h3>Your team, fluent in Claude</h3><p>Claude handles most busywork out of the box. Rollouts still stall at 15% because nobody keeps up with what it can do for their role. We train every person on their actual work until they find their own wins.</p></div>
-      <div class="step-v"><div class="num">04</div><h3>Company Brain</h3><p>We pull your data and knowledge out of scattered tools and people's heads into one clean source of truth, the operating system your AI runs on. <a href="company-brain.html" style="color: var(--terra);">How it works &rarr;</a></p></div>
+      <div class="step-v"><div class="num">01</div><h3>An AI lead</h3><p>Owns your whole AI plan. Finds the wins, sets the priorities, makes sure it ships. Your fractional Chief AI Officer.</p></div>
+      <div class="step-v"><div class="num">02</div><h3>A dedicated engineer</h3><p>Yours full- or half-time. Builds what off-the-shelf AI can't: phone agents, intake pipelines, the systems that don't talk. You own every line.</p></div>
+      <div class="step-v"><div class="num">03</div><h3>Your team, fluent in AI</h3><p>We train every person on their real work, with the best tool for the job, until they find their own wins.</p></div>
+      <div class="step-v"><div class="num">04</div><h3>Your Company Brain</h3><p>All your data and know-how in one place your AI runs on. Nobody enters the same number twice. <a href="company-brain.html" style="color: var(--terra);">How it works &rarr;</a></p></div>
     </div>
   </div>
 </section>
 
 <section style="background: var(--paper-2);">
   <div class="wrap">
-    <div class="kicker">How the engagement runs</div>
-    <h2>Month one has a deliverable. <em class="acc">Then it just runs.</em></h2>
+    <div class="kicker">How it runs</div>
+    <h2>Month one ships. <em class="acc">Then it just runs.</em></h2>
     <div class="steps-vert">
-      <div class="step-v"><div class="num">Month 1</div><h3>The 80/20 Report</h3><p>We map every workflow in your company and hand you a written report: exactly where AI pays off fastest, ranked, with a build roadmap for the year. It becomes the input for everything that gets built. No guessing, no pilot purgatory.</p></div>
-      <div class="step-v"><div class="num">Monthly</div><h3>Two tracks in parallel</h3><p>Our engineers ship the builds the roadmap calls for, anything from agents and automations to data pipelines that pull your operational data into one warehouse. Your team gets trained, role by role, with consultant access by scheduled calls and a shared Slack channel. And you get a weekly strategy call with your CAIO, so AI stays someone's job, not everyone's side project.</p></div>
-      <div class="step-v"><div class="num">Per build</div><h3>Credits, simply</h3><p>We write a one-page scope for each build with the objective, hours, and expected outcome. You approve it in writing. We ship it. You can see your credit balance anytime.</p></div>
-      <div class="step-v"><div class="num">The deal</div><h3>An annual partnership</h3><p>It flexes by depth, from a few builds a quarter to running your whole AI org, backed by a 60-day money-back guarantee. If you want a one-time project with a finish line, that's the <a href="claude-deployment.html" style="color: var(--terra);">Deployment Program</a>. If you want AI owned, this is it.</p></div>
+      <div class="step-v"><div class="num">Month 1</div><h3>The 80/20, included</h3><p>We map your work and rank where AI pays off fastest. That becomes your build list.</p></div>
+      <div class="step-v"><div class="num">Sprints</div><h3>Two-week sprints you can see</h3><p>Your engineer works a board you control. Weekly check-in, reprioritize anytime. No hours, no credits.</p></div>
+      <div class="step-v"><div class="num">Weekly</div><h3>Training and a Slack line</h3><p>Role-by-role training on real work, plus a Slack channel to your team whenever you need it.</p></div>
+      <div class="step-v"><div class="num">The deal</div><h3>Annual, guaranteed</h3><p>Three tiers, billed monthly, 60-day money-back. Add engineers as you grow.</p></div>
     </div>
     <div class="stat-strip">
       <div class="stat-cell"><div class="n">Week 1</div><div class="l">Your team is live</div></div>
@@ -518,19 +518,17 @@ fcaio = """
   <div class="wrap">
     <div class="kicker">Who it's for</div>
     <div class="prose">
-      <h2>Built for the companies the big firms <em class="acc">can't serve.</em></h2>
+      <h2>Built for the companies big firms <em class="acc">can't serve.</em></h2>
     </div>
     <div class="steps-vert">
-      <div class="step-v"><div class="num">Size</div><h3>$10M to $500M</h3><p>A year in revenue. Under $10M, the math doesn't pay back yet; start with our free content and come back when it does.</p></div>
-      <div class="step-v"><div class="num">Industry</div><h3>The real economy</h3><p>We've recently shipped in construction, insurance, energy, CPG, fintech, financial services, manufacturing, healthcare, professional services, and B2B software. The less digitally native the industry, the bigger the head start.</p></div>
-      <div class="step-v"><div class="num">Alternative</div><h3>Build it yourself</h3><p>Hiring this team runs $1M+ a year in salaries, if you can find the people. Most can't, because big tech hires them first. <a href="index.html#how" style="color: var(--terra);">See the math &rarr;</a></p></div>
-    </div>
-    <div class="prose">
+      <div class="step-v"><div class="num">Size</div><h3>$10M to $500M</h3><p>Under $10M, the math doesn't work yet. We'll tell you straight.</p></div>
+      <div class="step-v"><div class="num">Industry</div><h3>The real economy</h3><p>Construction, insurance, energy, manufacturing, healthcare, and more. The less digital, the bigger your head start.</p></div>
+      <div class="step-v"><div class="num">Or DIY</div><h3>Hire it yourself</h3><p>An AI lead, an engineer, and a trainer in-house run $1M+ a year. If you can find them. <a href="index.html#how" style="color: var(--terra);">See the math &rarr;</a></p></div>
     </div>
   </div>
 </section>
 """
-page("fractional-caio.html", "Fractional Chief AI Officer — Northwest AI", fcaio)
+page("fractional-caio.html", "Your AI Team — Northwest AI", fcaio)
 
 # ============================================================ CLAUDE DEPLOYMENT
 cdp = """
@@ -592,7 +590,7 @@ cdp = """
       <p>The program scales from 2 to 3 departments for smaller companies up to 5 departments with an expanded champions network for larger ones. Above ~300 employees we scope custom. Every tier includes the pre-engagement diagnostic, the exec cohort, matched consultants, full context architecture, pair-programmed builds, and an exit handoff. We'll give you a real number on the first call.</p>
       <h2>Deployment or partnership? <em class="acc">How to choose.</em></h2>
       <p>The Deployment Program has a finish line: 16 weeks, your company live on Claude, your people shipping their own automations. It's the right fit when you want a defined transformation with a defined end, and your team is self-sufficient at exit.</p>
-      <p>The <a href="fractional-caio.html" style="color: var(--terra);">Fractional Chief AI Officer</a> is the ongoing version: an executive owning your AI strategy, engineers shipping every month, training that never goes stale. Most deployment clients graduate into it, because the companies pulling ahead never stop building.</p>
+      <p><a href="fractional-caio.html" style="color: var(--terra);">Your AI Team</a> is the ongoing version: your AI lead owning the strategy, a dedicated engineer shipping every two weeks, training that never goes stale. Most deployment clients graduate into it, because the companies pulling ahead never stop building.</p>
     </div>
   </div>
 </section>
@@ -826,7 +824,7 @@ role_page("role-ai-consultant.html", "AI Consultant",
 
 role_page("role-ai-trainer.html", "AI Trainer",
   "Adoption is behavior change. <em class='acc'>You're the one who changes it.</em>",
-  "Most AI rollouts die because nobody actually teaches people. Our trainers run the 16-week programs that make whole companies fluent in Claude, from the executive cohort to the field, on their real work.",
+  "Most AI rollouts die because nobody actually teaches people. Our trainers run the 16-week programs that make whole companies fluent in AI, from the executive cohort to the field, on their real work.",
   ["Deliver Claude 101/102 and role-specific training across client departments",
    "Train executive cohorts in their language: budgets, board updates, deal memos",
    "Coach individuals through the learning curve, including the weeks where it's hard",
@@ -954,7 +952,10 @@ idx = idx.replace(
   'the paperwork exists.</strong> <a href="case-study-safety-reports.html" style="color: var(--terra); font-weight: 600;">Read the case study &rarr;</a></p>')
 # link program cards
 idx = idx.replace("<h3>Claude Deployment Program</h3>", '<h3><a href="claude-deployment.html" style="color: inherit; text-decoration: none;">Claude Deployment Program &rarr;</a></h3>')
-idx = idx.replace("<h3>Fractional AI Team</h3>", '<h3><a href="fractional-caio.html" style="color: inherit; text-decoration: none;">Fractional Chief AI Officer &rarr;</a></h3>')
+idx = idx.replace("<h3>Fractional AI Team</h3>", '<h3><a href="fractional-caio.html" style="color: inherit; text-decoration: none;">Your AI Team &rarr;</a></h3>')
+idx = idx.replace("<li>Your embedded AI department</li>", "<li>A dedicated engineer, an AI lead, and a trainer</li>")
+idx = idx.replace("<li>Engineers, trainers, and a chief AI officer</li>", "<li>An engineer, a trainer, and your AI lead</li>")
+idx = idx.replace("<li>Build credits included</li>", "<li>Two-week build sprints, you set priorities</li>")
 # company brain section link to page
 idx = idx.replace("We run it. Your team just opens Claude and it already knows the business.</p>",
   'We run it. Your team just opens Claude and it already knows the business. <a href="company-brain.html" style="color: var(--terra); font-weight: 600;">How Company Brain works &rarr;</a></p>')
