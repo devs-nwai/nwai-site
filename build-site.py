@@ -1190,7 +1190,7 @@ idx = re.sub(r'<div class="trusted">.*?</div>\s*</div>\s*\n', '', idx, count=1, 
 idx = idx.replace('<h1>AI doing real work, without hiring a <em class="acc">single engineer.</em></h1>',
   '<h1>Your AI department, without the <em class="acc">$1M payroll.</em></h1>')
 idx = idx.replace("<title>Northwest AI — AI doing real work, without hiring a single engineer</title>",
-  "<title>Fractional AI Team for Mid-Market Companies · Northwest AI</title>")
+  "<title>Fractional AI Team · Northwest AI</title>")
 # deployment card bullet corrected per the real DSA program (no agents-by-week-4 claim)
 idx = idx.replace("<li>Working agents by week four</li>", "<li>Pair-programmed builds and a demo day finish</li>")
 # iClosed widget script + popup wiring on all booking CTAs
