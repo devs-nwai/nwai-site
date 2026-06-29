@@ -25,9 +25,11 @@ def page_url(filename):
 
 SEO_DESC = {
   "index.html": "An entire AI team for mid-market companies: a dedicated engineer builds your automations, we train your team on the best AI tools, and Company Brain keeps it all current.",
-  "company-brain.html": "Company Brain holds everything AI needs to know about your business, defined once, deployed to every employee, and kept current. We run it, you own it.",
-  "fractional-caio.html": "An entire AI team without hiring one. Your AI lead owns the strategy, a dedicated engineer ships builds every two weeks, and your team gets fluent in the best AI tools.",
-  "claude-deployment.html": "A 16-week program that takes your company from scattered AI usage to a trained team, working automations, and a Company Brain. Fixed fee, scoped by headcount.",
+  "company-brain.html": "An AI knowledge base for your business: Company Brain holds everything your AI needs to know, deployed to every employee and kept current. We run it, you own it.",
+  "fractional-caio.html": "Fractional Chief AI Officer for mid-market companies: a fractional CAIO plus a dedicated engineer and trainer. Your whole AI team, without hiring one. $10M-$500M.",
+  "claude-deployment.html": "Claude training and a 16-week AI deployment for your whole company, role by role, with working automations by the end. Fixed fee, scoped by headcount.",
+  "workshops.html": "AI and Claude workshops for teams: hands-on training on the work your people actually do. One day or a short run, on-site or remote.",
+  "ai-builds.html": "Custom AI agent and automation development, fixed scope and price. Phone agents, intake pipelines, and integrations, built and owned by you.",
   "case-study-referrals.html": "A healthcare provider sorted hundreds of insurance referrals by hand. We built a HIPAA-compliant pipeline tied to their EMR. Sorting now takes minutes.",
   "case-study-phone-agent.html": "A towing company fielding 500 calls a day was missing too many. Our phone agent now answers 90% of them, around the clock.",
   "case-study-safety-reports.html": "A commercial construction company had safety reports running 80% late. After our automation, 80% arrive on time, the paperwork that decides lawsuits.",
@@ -198,7 +200,8 @@ NAV = """<nav>
           <div class="dd-label">Programs</div>
           <a href="fractional-caio.html">Your AI Team<span class="d">A dedicated engineer, an AI lead, and a trainer, run for you</span></a>
           <a href="claude-deployment.html">Deployment Program<span class="d">Company-wide Claude rollout in 16 weeks</span></a>
-          <a href="#">Embedded Engineering<span class="d">Dedicated build capacity that scales</span></a>
+          <a href="workshops.html">AI Workshops<span class="d">Hands-on training, one team at a time</span></a>
+          <a href="ai-builds.html">AI Builds<span class="d">One custom system, fixed scope and price</span></a>
           <hr>
           <div class="dd-label">Product</div>
           <a href="company-brain.html">Company Brain<span class="d">The context system behind everything we deploy</span></a>
@@ -269,6 +272,8 @@ FOOTER = """{{PRESSTICKER}}<footer>
         <strong style="color: rgba(250,247,241,0.8); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;">Programs</strong>
         <a href="fractional-caio.html">Your AI Team</a>
         <a href="claude-deployment.html">Claude Deployment Program</a>
+        <a href="workshops.html">AI Workshops</a>
+        <a href="ai-builds.html">AI Builds</a>
         <a href="company-brain.html">Company Brain</a>
       </div>
       <div class="foot-links" style="flex-direction: column; gap: 8px;">
@@ -326,8 +331,16 @@ GTM_NOSCRIPT = """<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56W2P5N8"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->"""
+
+# Favicon / app icons (added 2026-06-28). Files live at the site root; Vercel serves them at /.
+FAVICON = """<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#20283A">"""
+
 # Inject into the shared template so every current and future page carries it.
-HEAD = HEAD.replace("<head>", "<head>\n" + FB_META + "\n" + GTM_HEAD, 1)
+HEAD = HEAD.replace("<head>", "<head>\n" + FAVICON + "\n" + FB_META + "\n" + GTM_HEAD, 1)
 HEAD = HEAD.replace("<body>", "<body>\n" + GTM_NOSCRIPT, 1)
 
 # Every booking CTA opens the iClosed popup (element-click embed)
@@ -470,7 +483,7 @@ company_brain = """
   </div>
 </section>
 """
-page("company-brain.html", "Company Brain — Northwest AI", company_brain)
+page("company-brain.html", "Company Brain: AI Knowledge Base — Northwest AI", company_brain)
 
 # ============================================================ FRACTIONAL CAIO
 fcaio = """
@@ -482,6 +495,30 @@ fcaio = """
     <div class="hero-cta" style="margin-top: 32px;"><a class="btn terra" href="index.html#book">Book a discovery call</a></div>
   </div>
 </header>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Sound familiar?</div>
+    <h2 style="max-width: 820px;">You bought AI. <em class="acc">The work still gets done by hand.</em></h2>
+    <div class="steps-vert">
+      <div class="step-v"><div class="num">Time</div><h3>Your best people do robot work</h3><p>Hours a week copying numbers between systems, sorting an inbox, rebuilding the same report by hand.</p></div>
+      <div class="step-v"><div class="num">Adoption</div><h3>You rolled out AI. Nothing changed.</h3><p>A few people use it. The actual day-to-day still runs the old way, with a chatbot open in another tab.</p></div>
+      <div class="step-v"><div class="num">Bottleneck</div><h3>Your AI champion is maxed out</h3><p>One smart person became your whole AI capability, and now every project waits on them.</p></div>
+      <div class="step-v"><div class="num">Competition</div><h3>Someone is pulling ahead</h3><p>A competitor does more with fewer people, and you can't quite see what they're doing differently.</p></div>
+    </div>
+    <p style="color: var(--ink-soft); margin-top: 24px; font-size: 17px;">That's the AI Gap. It compounds every quarter you wait.</p>
+  </div>
+</section>
+
+<section style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="kicker">The real game</div>
+    <div class="prose">
+      <h2>Stop growing by hiring. <em class="acc">Grow per head.</em></h2>
+      <p>Most companies have one lever for growth: add people. Automate the busywork and the same team produces far more, at better margins. That's the whole game. Revenue per head, not headcount, and it's what an AI team actually buys you.</p>
+    </div>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
@@ -516,19 +553,68 @@ fcaio = """
 
 <section>
   <div class="wrap">
-    <div class="kicker">Who it's for</div>
-    <div class="prose">
-      <h2>Built for the companies big firms <em class="acc">can't serve.</em></h2>
-    </div>
+    <div class="kicker">Proof</div>
+    <h2 style="max-width: 800px;">We've done this <em class="acc">100+ times.</em></h2>
+    <p style="color: var(--ink-soft); margin: 14px 0 8px; font-size: 17px;">Same fix, across very different industries:</p>
     <div class="steps-vert">
-      <div class="step-v"><div class="num">Size</div><h3>$10M to $500M</h3><p>Under $10M, the math doesn't work yet. We'll tell you straight.</p></div>
+      <div class="step-v"><div class="num">Healthcare</div><h3>Hours to minutes</h3><p>Referral sorting that ate hours a day, now minutes. HIPAA, tied straight into their EMR. <a href="case-study-referrals.html" style="color: var(--terra);">Read it &rarr;</a></p></div>
+      <div class="step-v"><div class="num">Towing</div><h3>90% of 500 calls a day</h3><p>A phone agent answering nine of ten calls, around the clock. <a href="case-study-phone-agent.html" style="color: var(--terra);">Read it &rarr;</a></p></div>
+      <div class="step-v"><div class="num">Construction</div><h3>80% late to 80% on time</h3><p>The safety paperwork that decides lawsuits, finally filed on time. <a href="case-study-safety-reports.html" style="color: var(--terra);">Read it &rarr;</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="kicker">The math</div>
+    <div class="prose">
+      <h2>Hire this team yourself? <em class="acc">Over $1M a year.</em></h2>
+      <p>An AI leader who has actually run rollouts, a dedicated engineer, and a trainer add up to well over a million a year in salary, before they ship a thing, and that's if you can even find them. You get all three for one monthly fee, and you own everything they build.</p>
+    </div>
+    <div class="stat-strip">
+      <div class="stat-cell"><div class="n">$1M+/yr</div><div class="l">To hire the three roles</div></div>
+      <div class="stat-cell"><div class="n">One fee</div><div class="l">For the whole team, monthly</div></div>
+      <div class="stat-cell"><div class="n">You own it</div><div class="l">Every line, every workflow</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Who it's for</div>
+    <div class="prose"><h2>Built for the companies big firms <em class="acc">can't serve.</em></h2></div>
+    <div class="steps-vert">
+      <div class="step-v"><div class="num">Size</div><h3>$10M to $500M</h3><p>Under $10M, the math doesn't work yet. We'll tell you straight and point you to our free content.</p></div>
       <div class="step-v"><div class="num">Industry</div><h3>The real economy</h3><p>Construction, insurance, energy, manufacturing, healthcare, and more. The less digital, the bigger your head start.</p></div>
-      <div class="step-v"><div class="num">Or DIY</div><h3>Hire it yourself</h3><p>An AI lead, an engineer, and a trainer in-house run $1M+ a year. If you can find them. <a href="index.html#how" style="color: var(--terra);">See the math &rarr;</a></p></div>
+      <div class="step-v"><div class="num">Best fit</div><h3>Someone at the top wants this</h3><p>It works when a leader is bought in and ready to make AI actually happen, not just buy the tool.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="kicker">Questions</div>
+    <h2>The ones we <em class="acc">actually get.</em></h2>
+    <div class="steps-vert">
+      <div class="step-v"><div class="num">Busy?</div><h3>"It's our busy season."</h3><p>Every season is. Fix the busywork now and the busy ones get easier, not harder.</p></div>
+      <div class="step-v"><div class="num">DIY?</div><h3>"We'll try it internally first."</h3><p>Your champion already has a full-time job. Our team plus your people beats either alone, and we pick up wherever you got to.</p></div>
+      <div class="step-v"><div class="num">Vendor?</div><h3>"We already have a dev shop."</h3><p>Good. We own AI alongside them. The best results usually have more than one source of help.</p></div>
+      <div class="step-v"><div class="num">Price?</div><h3>"How much is it?"</h3><p>Three tiers, billed monthly, month one included, 60-day money-back. We give you the number on the first call.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">The risk is ours</div>
+    <div class="prose">
+      <h2>60 days. <em class="acc">Or your money back.</em></h2>
+      <p>If we haven't delivered clear value in the first 60 days, you get a full refund, and you keep the discovery, the trained team, and the 80/20 roadmap. The risk is on us, not you.</p>
     </div>
   </div>
 </section>
 """
-page("fractional-caio.html", "Your AI Team — Northwest AI", fcaio)
+page("fractional-caio.html", "Fractional Chief AI Officer & AI Team — Northwest AI", fcaio)
 
 # ============================================================ CLAUDE DEPLOYMENT
 cdp = """
@@ -595,7 +681,128 @@ cdp = """
   </div>
 </section>
 """
-page("claude-deployment.html", "Claude Deployment Program — Northwest AI", cdp)
+page("claude-deployment.html", "Claude Training & Deployment Program — Northwest AI", cdp)
+
+# ============================================================ AI WORKSHOPS
+workshops = """
+<header class="page-hero">
+  <div class="wrap">
+    <div class="kicker">Programs &middot; AI Workshops</div>
+    <h1>Get your team using AI. <em class="acc">In a day, not a quarter.</em></h1>
+    <p class="lede">Hands-on workshops that make a team or a department fluent fast, on the work they actually do. The training on its own, without the full rollout.</p>
+    <div class="hero-cta" style="margin-top: 32px;"><a class="btn terra" href="index.html#book">Book a discovery call</a></div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Why it matters</div>
+    <div class="prose">
+      <h2>You don't have a tool problem. <em class="acc">You have an adoption problem.</em></h2>
+      <p>Most rollouts stall around 15% of staff. Not because people are lazy, because nobody showed them what AI does for their specific job, and the tools move too fast to keep up with. A generic webinar doesn't fix that. Hands-on training on their real work does.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="kicker">What you get</div>
+    <h2 style="max-width: 800px;">Not a webinar. <em class="acc">Hands on their own work.</em></h2>
+    <div class="steps-vert">
+      <div class="step-v"><div class="num">01</div><h3>Built on your real work</h3><p>We train on the tasks your people actually do, not generic prompts.</p></div>
+      <div class="step-v"><div class="num">02</div><h3>Role by role</h3><p>Finance, ops, sales: each group learns what AI does for their job.</p></div>
+      <div class="step-v"><div class="num">03</div><h3>Skills that stick</h3><p>Your team leaves using AI on Monday, not just inspired by it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Formats</div>
+    <h2>One team or the whole company. <em class="acc">A day or a short run.</em></h2>
+    <div class="steps-vert">
+      <div class="step-v"><div class="num">Length</div><h3>A day, or a few sessions</h3><p>Scoped to how much ground you want to cover.</p></div>
+      <div class="step-v"><div class="num">Where</div><h3>On-site or remote</h3><p>Whatever fits your team.</p></div>
+      <div class="step-v"><div class="num">Tools</div><h3>The best one for the job</h3><p>Claude, ChatGPT, whatever your team should actually be using.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="kicker">Questions</div>
+    <h2>The ones we <em class="acc">actually get.</em></h2>
+    <div class="steps-vert">
+      <div class="step-v"><div class="num">Diff?</div><h3>"Is this the 16-week program?"</h3><p>No. That's the <a href="claude-deployment.html" style="color: var(--terra);">Claude Deployment Program</a>, company-wide, with builds and a Company Brain. Workshops are the focused, one-time version.</p></div>
+      <div class="step-v"><div class="num">Skeptics?</div><h3>"Half my team won't care."</h3><p>That's exactly who we train. When it's their real work and their tools, the skeptics are the ones who convert.</p></div>
+      <div class="step-v"><div class="num">More?</div><h3>"What if we want ongoing help?"</h3><p>Step up to <a href="fractional-caio.html" style="color: var(--terra);">Your AI Team</a> for a lead, an engineer, and a trainer every month.</p></div>
+    </div>
+  </div>
+</section>
+"""
+page("workshops.html", "AI & Claude Workshops for Teams — Northwest AI", workshops)
+
+# ============================================================ AI BUILDS
+ai_builds = """
+<header class="page-hero">
+  <div class="wrap">
+    <div class="kicker">Programs &middot; AI Builds</div>
+    <h1>One system. Built right. <em class="acc">Fixed scope, fixed price.</em></h1>
+    <p class="lede">When you need one specific thing built, a phone agent, an intake pipeline, an integration, we scope it, price it, and ship it. No retainer, no hourly meter.</p>
+    <div class="hero-cta" style="margin-top: 32px;"><a class="btn terra" href="index.html#book">Book a discovery call</a></div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">What we build</div>
+    <h2 style="max-width: 800px;">The stuff <em class="acc">off-the-shelf AI can't do.</em></h2>
+    <div class="steps-vert">
+      <div class="step-v"><div class="num">Agents</div><h3>Phone and chat agents</h3><p>Answer calls and messages around the clock, hand the hard ones to a human.</p></div>
+      <div class="step-v"><div class="num">Pipelines</div><h3>Intake and document pipelines</h3><p>Read, sort, classify, and route the work that piles up by hand.</p></div>
+      <div class="step-v"><div class="num">Integrations</div><h3>Systems that finally talk</h3><p>Connect the tools that don't, so nobody enters the same data twice.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="kicker">How it works</div>
+    <h2>A quote, a build, <em class="acc">a finish line.</em></h2>
+    <div class="steps-vert">
+      <div class="step-v"><div class="num">01</div><h3>A fixed quote</h3><p>We scope the build and give you one price. No hourly meter.</p></div>
+      <div class="step-v"><div class="num">02</div><h3>We build and ship it</h3><p>Our engineers build it, test it, and hand it over. You own every line.</p></div>
+      <div class="step-v"><div class="num">03</div><h3>A clean handoff</h3><p>A defined deliverable with a defined end. It runs, and it is yours.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Proof</div>
+    <h2 style="max-width: 800px;">Builds we've <em class="acc">actually shipped.</em></h2>
+    <div class="steps-vert">
+      <div class="step-v"><div class="num">Healthcare</div><h3>HIPAA referral pipeline</h3><p>Sorting that ate hours a day, now minutes, tied into their EMR. <a href="case-study-referrals.html" style="color: var(--terra);">Read it &rarr;</a></p></div>
+      <div class="step-v"><div class="num">Towing</div><h3>A 500-call-a-day phone agent</h3><p>Answers 90% of calls, around the clock. <a href="case-study-phone-agent.html" style="color: var(--terra);">Read it &rarr;</a></p></div>
+      <div class="step-v"><div class="num">Construction</div><h3>Safety-report automation</h3><p>From 80% late to 80% on time. <a href="case-study-safety-reports.html" style="color: var(--terra);">Read it &rarr;</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="kicker">Is it a fit</div>
+    <div class="prose">
+      <h2>Best when you know <em class="acc">exactly what you need.</em></h2>
+    </div>
+    <div class="steps-vert">
+      <div class="step-v"><div class="num">Good fit</div><h3>One clear problem</h3><p>A specific system you want built and owned, with a finish line.</p></div>
+      <div class="step-v"><div class="num">Ongoing</div><h3>Need more than one</h3><p>If you want continuous build capacity, that is <a href="fractional-caio.html" style="color: var(--terra);">Your AI Team</a>.</p></div>
+    </div>
+  </div>
+</section>
+"""
+page("ai-builds.html", "Custom AI Agent Development — Northwest AI", ai_builds)
 
 # ============================================================ CASE STUDIES
 def case_study(filename, kicker, h1, lede, stats, problem, built, result):
@@ -956,6 +1163,7 @@ idx = idx.replace("<h3>Fractional AI Team</h3>", '<h3><a href="fractional-caio.h
 idx = idx.replace("<li>Your embedded AI department</li>", "<li>A dedicated engineer, an AI lead, and a trainer</li>")
 idx = idx.replace("<li>Engineers, trainers, and a chief AI officer</li>", "<li>An engineer, a trainer, and your AI lead</li>")
 idx = idx.replace("<li>Build credits included</li>", "<li>Two-week build sprints, you set priorities</li>")
+idx = idx.replace("<h3>AI Workshops</h3>", '<h3><a href="workshops.html" style="color: inherit; text-decoration: none;">AI Workshops &rarr;</a></h3>')
 # company brain section link to page
 idx = idx.replace("We run it. Your team just opens Claude and it already knows the business.</p>",
   'We run it. Your team just opens Claude and it already knows the business. <a href="company-brain.html" style="color: var(--terra); font-weight: 600;">How Company Brain works &rarr;</a></p>')
@@ -982,7 +1190,7 @@ idx = re.sub(r'<div class="trusted">.*?</div>\s*</div>\s*\n', '', idx, count=1, 
 idx = idx.replace('<h1>AI doing real work, without hiring a <em class="acc">single engineer.</em></h1>',
   '<h1>Your AI department, without the <em class="acc">$1M payroll.</em></h1>')
 idx = idx.replace("<title>Northwest AI — AI doing real work, without hiring a single engineer</title>",
-  "<title>Northwest AI — Your AI department, without the $1M payroll</title>")
+  "<title>Fractional AI Team for Mid-Market Companies · Northwest AI</title>")
 # deployment card bullet corrected per the real DSA program (no agents-by-week-4 claim)
 idx = idx.replace("<li>Working agents by week four</li>", "<li>Pair-programmed builds and a demo day finish</li>")
 # iClosed widget script + popup wiring on all booking CTAs
@@ -995,7 +1203,7 @@ idx = idx.replace("<title>Northwest AI — ", "<title>Northwest AI · ")
 idx_title = re.search(r"<title>(.*?)</title>", idx).group(1)
 idx = idx.replace("</title>", "</title>\n" + seo_tags("index.html", idx_title), 1)
 # Homepage is built from the v3 mockup (its own <head>), so inject GTM + FB verification here too.
-idx = re.sub(r"(<head[^>]*>)", lambda m: m.group(1) + "\n" + FB_META + "\n" + GTM_HEAD, idx, count=1)
+idx = re.sub(r"(<head[^>]*>)", lambda m: m.group(1) + "\n" + FAVICON + "\n" + FB_META + "\n" + GTM_HEAD, idx, count=1)
 idx = re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + "\n" + GTM_NOSCRIPT, idx, count=1)
 open(os.path.join(OUT, "index.html"), "w").write(idx)
 WRITTEN.append("index.html")
@@ -1025,10 +1233,10 @@ print("wrote sitemap.xml (%d urls, /claude excluded by design)" % len(ordered))
 # ---------------- /claude ads LP (the CAIO funnel page of record) ----------------
 # Copied into the handoff as claude.html so the dev stands it up at nwai.co/claude.
 # DELIBERATELY: not in the nav, not in the sitemap (it carries meta noindex,nofollow),
-# and not SEO-tagged. Source of truth lives one level up (nwai-claude-lp-static.html).
-lp = open(os.path.join(SRC, "nwai-claude-lp-static.html")).read()
+# and not SEO-tagged. Source of truth now lives in this folder (site/nwai-claude-lp-static.html).
+lp = open(os.path.join(OUT, "nwai-claude-lp-static.html")).read()
 # Carry the same GTM container + FB verification onto the /claude ads LP (matches live).
-lp = re.sub(r"(<head[^>]*>)", lambda m: m.group(1) + "\n" + FB_META + "\n" + GTM_HEAD, lp, count=1)
+lp = re.sub(r"(<head[^>]*>)", lambda m: m.group(1) + "\n" + FAVICON + "\n" + FB_META + "\n" + GTM_HEAD, lp, count=1)
 lp = re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + "\n" + GTM_NOSCRIPT, lp, count=1)
 open(os.path.join(OUT, "claude.html"), "w").write(lp)
 print("wrote claude.html (ads LP, noindex, excluded from nav + sitemap)")
