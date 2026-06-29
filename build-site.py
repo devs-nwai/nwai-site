@@ -24,7 +24,7 @@ def page_url(filename):
     return BASE + "/" if filename == "index.html" else BASE + "/" + filename[:-5] + "/"
 
 SEO_DESC = {
-  "index.html": "An entire AI team for mid-market companies: a dedicated engineer builds your automations, we train your team on the best AI tools, and Company Brain keeps it all current.",
+  "index.html": "An entire AI team: a dedicated engineer builds your automations, we train your team on the best AI tools, and Company Brain manages your organizational context.",
   "company-brain.html": "An AI knowledge base for your business: Company Brain holds everything your AI needs to know, deployed to every employee and kept current. We run it, you own it.",
   "fractional-caio.html": "Fractional Chief AI Officer for mid-market companies: a fractional CAIO plus a dedicated engineer and trainer. Your whole AI team, without hiring one. $10M-$500M.",
   "claude-deployment.html": "Claude training and a 16-week AI deployment for your whole company, role by role, with working automations by the end. Fixed fee, scoped by headcount.",
