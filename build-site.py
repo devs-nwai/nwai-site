@@ -1280,4 +1280,38 @@ lp = re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + "\n" + GTM_NOSCRIPT, lp, co
 open(os.path.join(OUT, "claude.html"), "w").write(lp)
 print("wrote claude.html (ads LP, noindex, excluded from nav + sitemap)")
 
+# ============================================================ ERROR PAGES (404 / 403)
+# Funny, on-brand. Vercel auto-serves /404.html for unmatched routes. 403.html ships too
+# (wire it via vercel.json if you want it served). Both are noindex and kept out of the sitemap.
+ERR_TMPL = """
+<section style="border-top:none;padding:110px 0;min-height:58vh;display:flex;align-items:center">
+  <div class="wrap" style="text-align:center;margin:0 auto">
+    <div class="kicker" style="justify-content:center">__EYEBROW__</div>
+    <div style="font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:clamp(110px,20vw,220px);line-height:.85;color:var(--terra);letter-spacing:-0.02em">__CODE__</div>
+    <h1 style="margin-top:6px;max-width:760px;margin-left:auto;margin-right:auto">__HEADLINE__</h1>
+    <p class="lede" style="margin:18px auto 0;max-width:540px">__SUB__</p>
+    <div class="hero-cta" style="justify-content:center;margin-top:34px">
+      <a class="btn terra" href="/">Back to the homepage</a>
+      <a class="btn line" href="index.html#book">Book a call</a>
+    </div>
+  </div>
+</section>
+"""
+def error_page(filename, code, eyebrow, headline_html, sub):
+    body = (ERR_TMPL.replace("__EYEBROW__", eyebrow).replace("__CODE__", code)
+            .replace("__HEADLINE__", headline_html).replace("__SUB__", sub))
+    html = HEAD.replace("{{TITLE}}", code + " · Northwest AI").replace("{{SEO}}", '<meta name="robots" content="noindex,follow">')
+    html += NAV + body + "\n<div style='height:60px'></div>\n" + FOOTER + "\n</body>\n</html>\n"
+    html = wire_booking(html)
+    html = html.replace("wyatt@nwai.co", "consulting@nwai.co")
+    open(os.path.join(OUT, filename), "w").write(html)
+    print("wrote", filename, "(custom error page, noindex, not in sitemap)")
+
+error_page("404.html", "404", "404 · page not found",
+    'This page got <em class="acc">automated out of a job.</em>',
+    "The link is broken or the page moved. The parts that still do real work are one click away.")
+error_page("403.html", "403", "403 · forbidden",
+    'You need <em class="acc">clearance for this one.</em>',
+    "This page is locked. No password needed to get back to the good stuff, though.")
+
 print("DONE. Files:", sorted(os.listdir(OUT)))
