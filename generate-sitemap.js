@@ -23,7 +23,7 @@ function isIndexable(file) {
 }
 
 function loc(file) {
-  return file === "index.html" ? BASE + "/" : BASE + "/" + file.slice(0, -5) + "/";
+  return file === "index.html" ? BASE + "/" : BASE + "/" + file.slice(0, -5);
 }
 
 const pages = fs.readdirSync(ROOT)

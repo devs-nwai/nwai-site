@@ -2,58 +2,66 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nwai.co/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://nwai.co/about/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://nwai.co/about</loc>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://nwai.co/careers/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://nwai.co/ai-builds</loc>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://nwai.co/case-study-phone-agent/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://nwai.co/careers</loc>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://nwai.co/case-study-referrals/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://nwai.co/case-study-phone-agent</loc>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://nwai.co/case-study-safety-reports/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://nwai.co/case-study-referrals</loc>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://nwai.co/claude-deployment/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://nwai.co/case-study-safety-reports</loc>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://nwai.co/company-brain/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://nwai.co/claude-deployment</loc>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://nwai.co/fractional-caio/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://nwai.co/company-brain</loc>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://nwai.co/privacy/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://nwai.co/fractional-caio</loc>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://nwai.co/role-ai-consultant/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://nwai.co/privacy</loc>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://nwai.co/role-ai-trainer/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://nwai.co/role-ai-consultant</loc>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://nwai.co/role-engineer/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://nwai.co/role-ai-trainer</loc>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://nwai.co/terms/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://nwai.co/role-engineer</loc>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://nwai.co/terms</loc>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://nwai.co/workshops</loc>
+    <lastmod>2026-06-30</lastmod>
   </url>
 </urlset>
