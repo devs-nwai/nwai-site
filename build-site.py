@@ -216,21 +216,9 @@ extra_css = """
   /* ---- mobile: tighten hero top gap + keep comparison table readable (added 2026-06-29) ---- */
   @media (max-width: 800px) { .hero { padding-top: 48px; padding-bottom: 64px; } }
   .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  /* Mobile: stack the comparison table so it fits with NO sideways scroll (Wyatt: never slide on mobile). */
   @media (max-width: 760px) {
-    .compare .table-scroll { overflow-x: visible; }
-    .compare table, .compare .table-scroll table { min-width: 0; width: 100%; }
-    .compare thead { display: none; }
-    .compare tbody, .compare tr, .compare td { display: block; width: auto; }
-    .compare tr { border-bottom: 1px solid var(--hairline); padding: 14px 0; }
-    .compare tr:first-child { padding-top: 0; }
-    .compare tr:last-child { border-bottom: none; }
-    .compare td { border: none !important; width: auto !important; padding: 2px 0; }
-    .compare td:first-child { font-family: "Fraunces", Georgia, serif; font-size: 19px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
-    .compare td:nth-child(2)::before, .compare td:nth-child(3)::before { display: block; margin-top: 10px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
-    .compare td:nth-child(2)::before { content: "Build it in-house"; }
-    .compare td:nth-child(3)::before { content: "Northwest AI"; color: var(--terra); }
-    .compare td:nth-child(3) { color: var(--ink); }
+    .compare .table-scroll table { min-width: 520px; }
+    .compare td, .compare th { padding: 14px 16px; }
   }
 """
 
