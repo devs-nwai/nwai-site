@@ -399,3 +399,11 @@
   html, body { overflow-x: clip; }
   table { table-layout: fixed; }
   td, th { overflow-wrap: anywhere; }
+
+  /* ---- mobile: tighten hero top gap + keep comparison table readable (added 2026-06-29) ---- */
+  @media (max-width: 800px) { .hero { padding-top: 48px; padding-bottom: 64px; } }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  @media (max-width: 760px) {
+    .compare .table-scroll table { min-width: 520px; }
+    .compare td, .compare th { padding: 14px 16px; }
+  }

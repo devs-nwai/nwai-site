@@ -212,6 +212,14 @@ extra_css = """
   html, body { overflow-x: clip; }
   table { table-layout: fixed; }
   td, th { overflow-wrap: anywhere; }
+
+  /* ---- mobile: tighten hero top gap + keep comparison table readable (added 2026-06-29) ---- */
+  @media (max-width: 800px) { .hero { padding-top: 48px; padding-bottom: 64px; } }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  @media (max-width: 760px) {
+    .compare .table-scroll table { min-width: 520px; }
+    .compare td, .compare th { padding: 14px 16px; }
+  }
 """
 
 open(os.path.join(OUT, "styles.css"), "w").write(base_css + extra_css)
@@ -1258,6 +1266,8 @@ idx = idx.replace("</title>", "</title>\n" + seo_tags("index.html", idx_title), 
 idx = re.sub(r"(<head[^>]*>)", lambda m: m.group(1) + "\n" + FAVICON + "\n" + FB_META + "\n" + GTM_HEAD, idx, count=1)
 idx = re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + "\n" + GTM_NOSCRIPT, idx, count=1)
 idx = localize_faces(idx)
+# Wrap the comparison table so it scrolls (readable column widths) on mobile instead of stacking skinny.
+idx = idx.replace('<table>', '<div class="table-scroll"><table>').replace('</table>', '</table></div>')
 open(os.path.join(OUT, "index.html"), "w").write(idx)
 WRITTEN.append("index.html")
 print("wrote index.html")
