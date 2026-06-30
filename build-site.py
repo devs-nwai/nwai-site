@@ -391,6 +391,18 @@ def wire_booking(html):
                         '<a class="btn terra" ' + ICLOSED + '>Book a discovery call</a>')
     return html
 
+# Headshots ship from the repo (images/) instead of hotlinked from nwai.co, which blocks
+# cross-origin loads and broke them for visitors. Added 2026-06-29.
+FACE_MAP = {
+    "https://nwai.co/wp-content/uploads/2025/07/wyatt-headshot-hq-2.png": "images/wyatt-headshot.png",
+    "https://nwai.co/wp-content/uploads/2025/07/asad-headshot.jpg": "images/asad-headshot.webp",
+    "https://nwai.co/wp-content/uploads/2025/07/awais-headshot.jpg": "images/awais-headshot.jpg",
+}
+def localize_faces(html):
+    for remote, local in FACE_MAP.items():
+        html = html.replace(remote, local)
+    return html
+
 CTA_BAND = """<div class="wrap"><div class="cta-band">
   <h2>Find out what this looks like <em class="acc">in your company.</em></h2>
   <p>One call. We'll tell you exactly what AI can and can't do for your business, and what it would take. If it's not a fit, we'll say so.</p>
@@ -405,6 +417,7 @@ def page(filename, title, body, include_cta=True):
         html += CTA_BAND
     html += "\n<div style='height:80px'></div>\n" + FOOTER + "\n</body>\n</html>\n"
     html = wire_booking(html)
+    html = localize_faces(html)
     html = html.replace("wyatt@nwai.co", "consulting@nwai.co")
     open(os.path.join(OUT, filename), "w").write(html)
     WRITTEN.append(filename)
@@ -1244,6 +1257,7 @@ idx = idx.replace("</title>", "</title>\n" + seo_tags("index.html", idx_title), 
 # Homepage is built from the v3 mockup (its own <head>), so inject GTM + FB verification here too.
 idx = re.sub(r"(<head[^>]*>)", lambda m: m.group(1) + "\n" + FAVICON + "\n" + FB_META + "\n" + GTM_HEAD, idx, count=1)
 idx = re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + "\n" + GTM_NOSCRIPT, idx, count=1)
+idx = localize_faces(idx)
 open(os.path.join(OUT, "index.html"), "w").write(idx)
 WRITTEN.append("index.html")
 print("wrote index.html")
