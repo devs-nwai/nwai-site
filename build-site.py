@@ -185,6 +185,33 @@ extra_css = """
   }
   .dropdown hr { border: none; border-top: 1px solid var(--hairline-soft); margin: 8px 6px; }
 
+  /* ---- mobile nav: hamburger drawer (added 2026-06-29) ---- */
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--ink); padding: 6px; margin: -6px 0; line-height: 0; -webkit-tap-highlight-color: transparent; }
+  @media (max-width: 800px) {
+    .nav-toggle { display: inline-flex; align-items: center; }
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; align-items: stretch; gap: 0;
+      background: var(--paper); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline);
+      padding: 6px 0 16px; max-height: calc(100vh - 70px); overflow-y: auto;
+      box-shadow: 0 26px 40px -26px rgba(32,40,58,0.45);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links.open a:not(.btn) { display: block; }
+    .menu-item { width: 100%; }
+    .menu-item > a.top { display: flex; justify-content: space-between; align-items: center; padding: 13px 36px; font-size: 16px; color: var(--ink); }
+    .menu-item > a.top .car { opacity: 0.5; }
+    .nav-links.open .dropdown { position: static; display: block; box-shadow: none; border: none; min-width: 0; padding: 0 36px 10px; border-radius: 0; }
+    .nav-links.open .dropdown a { padding: 9px 0 !important; }
+    .dropdown .dd-label { padding: 8px 0 4px; }
+    .dropdown hr { margin: 8px 0; }
+    .nav-links .btn { display: block; margin: 14px 36px 4px; text-align: center; }
+  }
+
+  /* ---- prevent horizontal scroll on mobile (added 2026-06-29) ---- */
+  html, body { overflow-x: clip; }
+  table { table-layout: fixed; }
+  td, th { overflow-wrap: anywhere; }
 """
 
 open(os.path.join(OUT, "styles.css"), "w").write(base_css + extra_css)
@@ -192,8 +219,11 @@ open(os.path.join(OUT, "styles.css"), "w").write(base_css + extra_css)
 # ---------- shared nav / footer ----------
 NAV = """<nav>
   <div class="wrap nav-inner">
-    <a class="logo" href="index.html">Northwest AI<span class="dot">.</span></a>
-    <div class="nav-links">
+    <a class="logo" href="/">Northwest AI<span class="dot">.</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+    <div class="nav-links" id="nav-links">
       <div class="menu-item">
         <a class="top" href="#">What we do <span class="car">&#9660;</span></a>
         <div class="dropdown">
@@ -228,7 +258,16 @@ NAV = """<nav>
       <a class="btn" href="index.html#book">Book a call</a>
     </div>
   </div>
-</nav>"""
+</nav>
+<script>
+(function(){
+  var b=document.querySelector('.nav-toggle'), l=document.getElementById('nav-links');
+  if(!b||!l) return;
+  function set(o){ l.classList.toggle('open', o); b.setAttribute('aria-expanded', o?'true':'false'); b.setAttribute('aria-label', o?'Close menu':'Open menu'); }
+  b.addEventListener('click', function(){ set(!l.classList.contains('open')); });
+  l.addEventListener('click', function(e){ if(e.target.closest('a')) set(false); });
+})();
+</script>"""
 
 PRESS = [
     ("zdnet",        '<span class="tk-mark" style="font-weight:900; letter-spacing:0.02em;">ZDNET</span>', "As covered in ZDNET, Sep 2025."),

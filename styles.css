@@ -372,3 +372,30 @@
   }
   .dropdown hr { border: none; border-top: 1px solid var(--hairline-soft); margin: 8px 6px; }
 
+  /* ---- mobile nav: hamburger drawer (added 2026-06-29) ---- */
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--ink); padding: 6px; margin: -6px 0; line-height: 0; -webkit-tap-highlight-color: transparent; }
+  @media (max-width: 800px) {
+    .nav-toggle { display: inline-flex; align-items: center; }
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; align-items: stretch; gap: 0;
+      background: var(--paper); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline);
+      padding: 6px 0 16px; max-height: calc(100vh - 70px); overflow-y: auto;
+      box-shadow: 0 26px 40px -26px rgba(32,40,58,0.45);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links.open a:not(.btn) { display: block; }
+    .menu-item { width: 100%; }
+    .menu-item > a.top { display: flex; justify-content: space-between; align-items: center; padding: 13px 36px; font-size: 16px; color: var(--ink); }
+    .menu-item > a.top .car { opacity: 0.5; }
+    .nav-links.open .dropdown { position: static; display: block; box-shadow: none; border: none; min-width: 0; padding: 0 36px 10px; border-radius: 0; }
+    .nav-links.open .dropdown a { padding: 9px 0 !important; }
+    .dropdown .dd-label { padding: 8px 0 4px; }
+    .dropdown hr { margin: 8px 0; }
+    .nav-links .btn { display: block; margin: 14px 36px 4px; text-align: center; }
+  }
+
+  /* ---- prevent horizontal scroll on mobile (added 2026-06-29) ---- */
+  html, body { overflow-x: clip; }
+  table { table-layout: fixed; }
+  td, th { overflow-wrap: anywhere; }

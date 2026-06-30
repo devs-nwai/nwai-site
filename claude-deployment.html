@@ -40,8 +40,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <nav>
   <div class="wrap nav-inner">
-    <a class="logo" href="index.html">Northwest AI<span class="dot">.</span></a>
-    <div class="nav-links">
+    <a class="logo" href="/">Northwest AI<span class="dot">.</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+    <div class="nav-links" id="nav-links">
       <div class="menu-item">
         <a class="top" href="#">What we do <span class="car">&#9660;</span></a>
         <div class="dropdown">
@@ -77,6 +80,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </nav>
+<script>
+(function(){
+  var b=document.querySelector('.nav-toggle'), l=document.getElementById('nav-links');
+  if(!b||!l) return;
+  function set(o){ l.classList.toggle('open', o); b.setAttribute('aria-expanded', o?'true':'false'); b.setAttribute('aria-label', o?'Close menu':'Open menu'); }
+  b.addEventListener('click', function(){ set(!l.classList.contains('open')); });
+  l.addEventListener('click', function(e){ if(e.target.closest('a')) set(false); });
+})();
+</script>
 <header class="page-hero">
   <div class="wrap">
     <div class="kicker">Programs &middot; Claude Deployment Program</div>
