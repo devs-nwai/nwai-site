@@ -1,4 +1,8 @@
 {
+  "buildCommand": "node generate-sitemap.js",
+  "outputDirectory": ".",
+  "framework": null,
+  "installCommand": "echo no dependencies to install",
   "redirects": [
     {
       "source": "/author/wyatt",
