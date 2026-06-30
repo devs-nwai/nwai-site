@@ -1,0 +1,174 @@
+{
+  "redirects": [
+    {
+      "source": "/author/wyatt",
+      "destination": "/about",
+      "statusCode": 301
+    },
+    {
+      "source": "/author/:slug*",
+      "destination": "/about",
+      "statusCode": 301
+    },
+    {
+      "source": "/solutions/ai-governance-consulting",
+      "destination": "/fractional-caio",
+      "statusCode": 301
+    },
+    {
+      "source": "/solutions/ai-chatbot-development",
+      "destination": "/ai-builds",
+      "statusCode": 301
+    },
+    {
+      "source": "/solutions/ai-integration-support",
+      "destination": "/ai-builds",
+      "statusCode": 301
+    },
+    {
+      "source": "/solutions/ai-workflow-automation-services",
+      "destination": "/ai-builds",
+      "statusCode": 301
+    },
+    {
+      "source": "/solutions/:slug*",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ai-clinical-trials-complete-guide-for-2025",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/how-to-prevent-ai-bias-in-2025",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/how-ai-transforms-modern-manufacturing-operations",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ai-forecasting-models-everything-you-need-to-know-in-2025",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/asic-vs-fpga-complete-technical-comparison-guide",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/how-does-iso-42001-address-algorithmic-bias-in-2025",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/the-ai-arms-race-explained-openai-vs-google-vs-meta-competition",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ai-in-banking-complete-guide-2025",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ai-in-forensics-applications-and-future-impact",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/what-is-adversarial-ai-in-2025",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/how-to-measure-ai-roi-a-complete-business-guide",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/iso-42001-what-is-ai-management-standard",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/evaluating-an-ai-vendor-key-questions-to-ask",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ai-for-operations-management-complete-implementation-guide",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/what-is-the-difference-between-ai-accelerators-and-gpus",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/how-dominos-uses-ai-to-revolutionize-pizza-delivery-in-2025",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tpus-vs-gpus-in-ai-complete-comparison-guide",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/what-is-ai-agent-memory-complete-guide",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ai-safety-risks-2025-prevention-guide",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/how-to-develop-an-ai-governance-framework-step-by-step",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/what-are-ai-hallucinations-and-why-they-matter",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/what-is-ai-orchestration-a-complete-2025-guide",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/what-is-an-ai-center-of-excellence-in-2025-complete-guide-2",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/agentic-ai-vs-generative-ai-complete-guide",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ai-agents-in-sales-benefits-and-implementation",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/how-to-implement-iso-42001-complete-guide-2025",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/rome-call-for-ai-ethics-explained-complete-guide-to-vaticans-ai-framework",
+      "destination": "/",
+      "statusCode": 301
+    }
+  ]
+}
