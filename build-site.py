@@ -21,7 +21,10 @@ TODAY = datetime.date.today().isoformat()
 WRITTEN = []  # filenames written this build, feeds sitemap.xml
 
 def page_url(filename):
-    return BASE + "/" if filename == "index.html" else BASE + "/" + filename[:-5] + "/"
+    # Canonical = apex host, slash-less, to match what Vercel actually serves
+    # (Vercel strips trailing slashes by default; e.g. /about/ 301s to /about).
+    # Homepage stays "/". Used for <link rel=canonical>, og:url, and the sitemap.
+    return BASE + "/" if filename == "index.html" else BASE + "/" + filename[:-5]
 
 SEO_DESC = {
   "index.html": "An entire AI team: a dedicated engineer builds your automations, we train your team on the best AI tools, and Company Brain manages your organizational context.",
