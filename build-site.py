@@ -982,7 +982,7 @@ about = """
         <img class="face" src="https://nwai.co/wp-content/uploads/2025/07/wyatt-headshot-hq-2.png" alt="Wyatt Mayham">
         <div class="name">Wyatt Mayham</div>
         <div class="role">CEO</div>
-        <p>Second-time founder. Built and sold TwitchMetrics to GameSquare (NASDAQ: GAME). Leads strategy and runs the front of the house.</p>
+        <p>Second-time founder. Leads strategy and runs the front of the house.</p>
       </div>
       <div class="team-row">
         <img class="face" src="https://nwai.co/wp-content/uploads/2025/07/asad-headshot.jpg" alt="Asad Malik">
